@@ -1,0 +1,4 @@
+use cacheLife
+use cacheTag
+use update tag
+when using cahcecommponent dont use revalidate even dont use dynamic or force static
