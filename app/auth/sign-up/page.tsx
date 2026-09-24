@@ -28,39 +28,21 @@ export default function SignUpPage() {
   });
 
   async function onSubmit(data: z.infer<typeof signUpSchema>) {
-
-      startTransition(async()=>{
-           await authClient.signIn.email({
-      email: data.email,
-      password: data.password,
-      fetchOptions: {
-        onSuccess: () => {
-          toast.success("Logged in successfully!");
-          router.push("/");
+    startTransition(async () => {
+      await authClient.signUp.email({
+        email: data.email,
+        password: data.password,
+        name: data.name,
+        fetchOptions: {
+          onSuccess: () => {
+            toast.success("Account created successfully!");
+            router.push("/");
+          },
+          onError: (error) => {
+            toast.error(`Sign up failed: ${error.error.message}`);
+          },
         },
-        onError: (error) => {
-          toast.error(`Login failed: ${error.error.message}`);
-        }
-      },
-    });
-
-      })
-
-
-    await authClient.signUp.email({
-      email: data.email,
-      password: data.password,
-      name: data.name,
-      fetchOptions: {
-        
-        onSuccess: () => {
-          toast.success("Account created successfully!"),
-          router.push("/");
-        },
-        onError: (error) => {
-          toast.error(`Sign up failed: ${error.error.message}`);
-        }
-      },
+      });
     });
   }
 
