@@ -15,7 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // export const revalidate=30;
 import type { Metadata } from 'next'
-// import { cacheLife, cacheTag } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
  
 export const metadata: Metadata = {
   title: 'Blog|Next.js Practice',
@@ -49,10 +49,10 @@ export default async function BlogPage() {
 
 async function LoadBlogList(){
     
-  // "use cache";
-  // cacheLife("hours");
-  // cacheTag("blog");
-  await connection();
+  "use cache";
+  cacheLife("hours");
+  cacheTag("blog");
+
   const data = await fetchQuery(api.posts.getPosts, {})
   return(
 
