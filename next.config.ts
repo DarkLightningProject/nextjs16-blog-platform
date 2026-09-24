@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
         port:"",
       },
       {
-        hostname: "scrupulous-nightingale-155.eu-west-1.convex.cloud",
+        hostname: "giddy-penguin-898.convex.cloud",
         protocol: "https",
         port:"",
       }
