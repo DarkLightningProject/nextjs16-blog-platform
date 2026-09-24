@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { api } from "@/convex/_generated/api";
 import { buttonVariants } from "@/components/ui/button";
 import { fetchQuery } from "convex/nextjs";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 
@@ -15,7 +15,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 // export const revalidate=30;
 import type { Metadata } from 'next'
-import { cacheLife, cacheTag } from "next/cache";
+// import { cacheLife, cacheTag } from "next/cache";
  
 export const metadata: Metadata = {
   title: 'Blog|Next.js Practice',
@@ -49,9 +49,10 @@ export default async function BlogPage() {
 
 async function LoadBlogList(){
     
-  "use cache";
-  cacheLife("hours");
-  cacheTag("blog");
+  // "use cache";
+  // cacheLife("hours");
+  // cacheTag("blog");
+  await connection();
   const data = await fetchQuery(api.posts.getPosts, {})
   return(
 
