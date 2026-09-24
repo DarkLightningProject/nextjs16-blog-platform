@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { api } from "@/convex/_generated/api";
 import { buttonVariants } from "@/components/ui/button";
 import { fetchQuery } from "convex/nextjs";
-// import { Suspense } from "react";
+import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 
@@ -40,9 +40,9 @@ export default async function BlogPage() {
       </div>
 
 
-      {/* <Suspense fallback={<SkeletonLoadingUi />}> */}
+      <Suspense fallback={<SkeletonLoadingUi />}>
         <LoadBlogList />
-      {/* </Suspense> */}
+      </Suspense>
     </div>
   );
 }
