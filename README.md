@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 16 Blog Platform
 
-## Getting Started
+A modern blog platform built with Next.js 16, TypeScript, Tailwind CSS, and Convex. It supports user authentication, blog creation, comments, search, and live presence features.
 
-First, run the development server:
+## Features
+
+- Blog listing and detailed post pages
+- Create and publish blog posts with image upload support
+- User authentication with Better Auth
+- Commenting system per post
+- Live presence tracking for blog readers
+- Search for blog posts
+- Responsive UI with dark/light theme support
+- Server-side caching and optimized data fetching
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- Convex backend
+- Better Auth
+- Shadcn UI components
+- Zod validation
+
+## Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+.
+├── app/                 # App router pages and server actions
+├── components/          # Reusable UI components
+├── convex/              # Convex schema, auth, and functions
+├── lib/                 # Auth and utility helpers
+├── public/              # Static assets
+├── schemas/             # Zod validation schemas
+├── package.json         # Scripts and dependencies
+├── next.config.ts       # Next.js config
+├── tsconfig.json        # TypeScript config
+├── pnpm-lock.yaml       # Lock file
+└── README.md            # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Before running the project, make sure you have:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 20+
+- pnpm
+- A Convex account and deployment configured
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+git clone <your-repository-url>
+cd nextjs-16-tutorial-yt
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Install dependencies
 
-## Deploy on Vercel
+```bash
+pnpm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Set up environment variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a `.env.local` file in the project root and add:
+
+```env
+NEXT_PUBLIC_CONVEX_URL=your_convex_url
+NEXT_PUBLIC_CONVEX_SITE_URL=http://localhost:3000
+SITE_URL=http://localhost:3000
+```
+
+You may also need to configure your Convex deployment if this project is connected to a remote environment.
+
+## Running the Project
+
+Start the Convex backend in one terminal:
+
+```bash
+npx convex dev
+```
+
+Start the Next.js app in another terminal:
+
+```bash
+pnpm dev
+```
+
+Open http://localhost:3000 in your browser.
+
+## Available Scripts
+
+```bash
+pnpm dev      # Start the development server
+pnpm build    # Build the production app
+pnpm start    # Start the production server
+pnpm lint     # Run ESLint checks
+```
+
+## Authentication
+
+This project uses Better Auth with Convex integration. Users can sign up, log in, and access protected blog features.
+
+## Blog Features
+
+- View all blog posts on the home blog page
+- Open a full article page with post details
+- Publish blog content with title, body, and image
+- Add comments under each post
+- Search posts by title
+
+## Notes
+
+This project is designed as a tutorial-style blog platform and is a great starting point for learning:
+
+- App Router patterns in Next.js 16
+- Convex database and real-time features
+- Better Auth integration
+- Next.js server actions and caching
+- Component-driven UI with Tailwind and Shadcn
+
+## License
+
+This project is available for learning and personal use.
+
+## Contributing
+
+Contributions are welcome. If you want to improve the project, create a branch, make your changes, and open a pull request.
